@@ -1,5 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
   inject: 'body'
@@ -7,7 +7,7 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: [
-    './app/index.js'
+    './app/index.jsx'
   ],
   output: {
     path: __dirname + '/dist',
@@ -15,8 +15,15 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: 'babel-loader'}
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
     ]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [HTMLWebpackPluginConfig]
 }
