@@ -22,7 +22,7 @@ function Prompt (props) {
 Prompt.propTypes = {
   header: PropTypes.string.isRequired,
   onUpdateUser: PropTypes.func.isRequired,
-  onSumbitUser: PropTypes.func.isRequired,
+  onSubmitUser: PropTypes.func.isRequired,
   username: PropTypes.string.isRequired
 }
 
