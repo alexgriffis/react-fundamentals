@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import routes from '../config/routes'
+import routes from './config/routes'
 
 /*
 const meData = {
