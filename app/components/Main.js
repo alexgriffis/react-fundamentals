@@ -1,29 +1,16 @@
 import React from 'react'
-
-// Standard Form:
-// var Main = React.createClass({
-//   render: function () {
-//     return (
-//       <div className='main-container'>
-//         {this.props.children}
-//       </div>
-//     )
-//   }
-// })
-
-// Shorthand named function
-// function Main (props) {
-//   return (
-//     <div className='main-container'>
-//       {props.children}
-//     </div>
-//   )
-// }
+import ReactCSSTransistionGroup from 'react-addons-css-transition-group'
+import '../main.css'
 
 // Arrow assignment
 const Main = (props) => (
   <div className='main-container'>
-    {props.children}
+    <ReactCSSTransistionGroup
+      transitionName="appear"
+      transitionEnterTimeout={500}
+      transitionLeaveTimeout={500}>
+      {React.cloneElement(props.children, {key: props.location.pathname})}
+    </ReactCSSTransistionGroup>
   </div>
 )
 
